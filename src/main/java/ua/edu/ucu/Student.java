@@ -32,8 +32,28 @@ class Student {
     }
 
     @Override
+    public int hashCode() {
+        return (int) GPA + 13 * year + 169 * name.hashCode()
+                + 2197 * surname.hashCode();
+    }
+
+
+    @Override
+    public boolean equals(Object st) {
+        if (!(st instanceof Student)) {
+            return false;
+        }
+        Student other = (Student) st;
+        if (other.hashCode() != hashCode()) {
+            return false;
+        }
+        return GPA == other.GPA && year == other.year
+                && name.equals(other.name) && surname.equals(other.surname);
+
+    }
+
+    @Override
     public String toString() {
         return "Student{name=" + name + ", surname=" + surname + ", " + "GPA=" + GPA + ", year=" + year + '}';
     }
-
 }
