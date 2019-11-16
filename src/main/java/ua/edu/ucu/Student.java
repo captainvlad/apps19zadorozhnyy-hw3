@@ -31,7 +31,7 @@ class Student {
         return surname;
     }
 
-    @Override
+
     public int hashCode() {
         return (int) GPA + 13 * year + 169 * name.hashCode()
                 + 2197 * surname.hashCode();

@@ -1,17 +1,15 @@
 package ua.edu.ucu.smartarr;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.stream.Stream;
 
 // Remove duplicates from SmartArray. Use method equals() to compare objects
 public class DistinctDecorator extends SmartArrayDecorator {
 
     public DistinctDecorator(SmartArray smartArray) {
         super(smartArray);
-        Set<Object> h = new HashSet<>
-                (Arrays.asList(smartArray.toArray()));
-        array = h.toArray();
+        Stream<Object> a = Arrays.stream(smartArray.toArray());
+        array = a.distinct().toArray();
         }
 
     @Override

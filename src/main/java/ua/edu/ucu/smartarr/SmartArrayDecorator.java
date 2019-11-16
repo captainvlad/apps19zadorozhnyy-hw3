@@ -16,6 +16,6 @@ abstract class SmartArrayDecorator implements SmartArray {
 
     @Override
     public int size() {
-        return smartArray.size();
+        return array.length;
     }
 }
