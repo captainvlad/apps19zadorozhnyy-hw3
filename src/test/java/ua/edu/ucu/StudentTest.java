@@ -53,7 +53,7 @@ public class StudentTest {
 
     @Test
     public void testToString() {
-        assertEquals(student.toString(), "Student{name=Vladyslav, surname=Zadorozhnyy, GPA=4.7, year=2}");
-        assertNotEquals(student.toString(), "Student{name=Danylo, surname=Klymenko, GPA=5.0, year=2}");
+        assertEquals(student.toString(), "Student: name: Vladyslav, surname: Zadorozhnyy, GPA: 4.7, studying year: 2}");
+        assertNotEquals(student.toString(), "Student: name: Danylo, surname: Klymenko, GPA: 5.0, studying year: 2}");
     }
 }
