@@ -1,12 +1,12 @@
 package ua.edu.ucu.smartarr;
 
 // Base array for decorators
-public class BaseArray implements SmartArray {
+public class BaseArray implements SmartArray{
 
     private Object[] array;
 
-    public BaseArray(Object[] array) {
-        this.array = array.clone();
+    public BaseArray(Object[] arg){
+        this.array = arg.clone();
     }
 
     @Override
@@ -16,7 +16,7 @@ public class BaseArray implements SmartArray {
 
     @Override
     public String operationDescription() {
-        return "No actions done";
+        return "No decorator used ";
     }
 
     @Override

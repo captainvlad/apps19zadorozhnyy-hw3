@@ -39,21 +39,22 @@ class Student {
 
 
     @Override
-    public boolean equals(Object st) {
-        if (!(st instanceof Student)) {
+    public boolean equals(Object o) {
+        if (!(o instanceof Student)) {
             return false;
         }
-        Student other = (Student) st;
+        Student other = (Student) o;
         if (other.hashCode() != hashCode()) {
             return false;
         }
-        return GPA == other.GPA && year == other.year
-                && name.equals(other.name) && surname.equals(other.surname);
+        return name.equals(other.name) && surname.equals(other.surname) &&
+                GPA == other.GPA && year == other.year;
 
     }
 
     @Override
     public String toString() {
-        return "Student: name: " + name + ", surname: " + surname + ", " + "GPA: " + GPA + ", studying year: " + year + '}';
+        return "Student{name=" + name + ", surname=" + surname + ", " + "GPA=" + GPA + ", year=" + year + '}';
     }
+
 }

@@ -1,6 +1,7 @@
 package ua.edu.ucu;
 
 import java.util.Arrays;
+
 import ua.edu.ucu.functions.MyComparator;
 import ua.edu.ucu.functions.MyFunction;
 import ua.edu.ucu.functions.MyPredicate;
@@ -9,8 +10,8 @@ import ua.edu.ucu.smartarr.*;
 public class SmartArrayApp {
 
     public static Integer[]
-            filterPositiveIntegersSortAndMultiplyBy2(Integer[] integers) {
-                
+    filterPositiveIntegersSortAndMultiplyBy2(Integer[] integers) {
+
         MyPredicate pr = new MyPredicate() {
             @Override
             public boolean test(Object t) {
@@ -50,42 +51,40 @@ public class SmartArrayApp {
     }
 
     public static String[]
-            findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(Student[] students) {
+    findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(Student[] students) {
 
         // Hint: to convert Object[] to String[] - use the following code
         //Object[] result = studentSmartArray.toArray();
         //return Arrays.copyOf(result, result.length, String[].class);
+        MyPredicate f_1 = new MyPredicate() {
+            @Override
+            public boolean test(Object t) {
+                return (((Student) t).getYear() == 2 && ((Student) t).getGPA() >= 4);
+            }
+        };
 
-        MyComparator compSurname = new MyComparator() {
+        MyComparator f_2 = new MyComparator() {
             @Override
             public int compare(Object o1, Object o2) {
                 return ((Student) o1).getSurname().compareTo(((Student) o2).getSurname());
             }
         };
-
-        MyPredicate secondY = new MyPredicate() {
-            @Override
-            public boolean test(Object t) {
-                return ((Student) t).getYear() == 2 && ((Student) t).getGPA() >= 4;
-            }
-        };
-
-        MyFunction getName = new MyFunction() {
+        MyFunction f_3 = new MyFunction() {
             @Override
             public Object apply(Object t) {
                 return ((Student) t).getSurname() + " " + ((Student) t).getName();
             }
         };
 
-        SmartArray studenttArray = new BaseArray(students);
-        studenttArray = new DistinctDecorator(studenttArray);
+        SmartArray studentSmartArray = new BaseArray(students);
 
-        studenttArray = new FilterDecorator(studenttArray, secondY);
-        studenttArray = new SortDecorator(studenttArray, compSurname);
+        studentSmartArray = new DistinctDecorator(studentSmartArray);
+        studentSmartArray = new FilterDecorator(studentSmartArray, f_1);
 
-        studenttArray = new MapDecorator(studenttArray, getName);
-        Object[] result = studenttArray.toArray();
+        studentSmartArray = new SortDecorator(studentSmartArray, f_2);
+        studentSmartArray = new MapDecorator(studentSmartArray, f_3);
 
+        Object[] result = studentSmartArray.toArray();
         return Arrays.copyOf(result, result.length, String[].class);
     }
 }

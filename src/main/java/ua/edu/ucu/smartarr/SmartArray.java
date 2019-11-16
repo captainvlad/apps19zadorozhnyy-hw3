@@ -4,9 +4,9 @@ public interface SmartArray {
 
     Object[] toArray(); // return array with SmartArray elements
 
-    // return current operation name applied to SmartArray
     String operationDescription();
-    
+    // return current operation name applied to SmartArray
+
     int size(); // return SmartArray size
-   
+
 }
