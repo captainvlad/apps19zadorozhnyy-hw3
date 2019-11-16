@@ -12,12 +12,12 @@ abstract class SmartArrayDecorator implements SmartArray {
     }
 
     @Override
-    public Object[] toArray(){
+    public Object[] toArray() {
         return array.clone();
     }
 
     @Override
-    public int size(){
+    public int size() {
         return array.length;
     }
 

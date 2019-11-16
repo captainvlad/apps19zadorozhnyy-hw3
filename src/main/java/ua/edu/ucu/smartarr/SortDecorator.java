@@ -14,7 +14,8 @@ public class SortDecorator extends SmartArrayDecorator {
 
     @Override
     public String operationDescription() {
-        return "Sort decorator used. Elements are sorted according to MyComparator.";
+        return "Sort decorator used. Elements are" +
+                " sorted according to MyComparator.";
     }
 
 }

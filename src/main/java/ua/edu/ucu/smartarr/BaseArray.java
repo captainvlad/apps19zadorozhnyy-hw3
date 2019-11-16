@@ -5,7 +5,7 @@ public class BaseArray implements SmartArray {
 
     private Object[] array;
 
-    public BaseArray(Object[] array){
+    public BaseArray(Object[] array) {
         this.array = array.clone();
     }
 
