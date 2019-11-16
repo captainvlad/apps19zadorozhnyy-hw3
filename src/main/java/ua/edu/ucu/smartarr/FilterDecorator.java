@@ -15,7 +15,7 @@ public class FilterDecorator extends SmartArrayDecorator  {
 
     @Override
     public String operationDescription() {
-        return "Filter decorator was used. Tested every " +
-                "element and removed it if it doesn't satisfy MyPredicate";
+        return "Filter decorator was used. Tested every "
+                + "element and removed it if it doesn't satisfy MyPredicate";
     }
 }
