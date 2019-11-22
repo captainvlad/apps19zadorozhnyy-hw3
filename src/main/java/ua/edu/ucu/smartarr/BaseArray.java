@@ -3,7 +3,7 @@ package ua.edu.ucu.smartarr;
 // Base array for decorators
 public class BaseArray implements SmartArray{
 
-    private Object[] array;
+    Object[] array;
 
     public BaseArray(Object[] arg){
         this.array = arg.clone();
@@ -22,5 +22,10 @@ public class BaseArray implements SmartArray{
     @Override
     public int size() {
         return array.length;
+    }
+
+
+    public void setValue(int index) {
+        array[index] = 0;
     }
 }
